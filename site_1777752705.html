@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArcStudio | Premium Architectural Design</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        
+        .mesh-gradient {
+            background: radial-gradient(circle at 50% 50%, rgba(20, 20, 25, 1) 0%, rgba(0, 0, 0, 1) 100%);
+        }
+        
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .hover-glow:hover {
+            box-shadow: 0 0 25px rgba(245, 158, 11, 0.2);
+            border-color: rgba(245, 158, 11, 0.4);
+        }
+
+        /* Bento Grid Layout */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-auto-rows: 250px;
+            gap: 1.5rem;
+        }
+    </style>
+</head>
+<body class="bg-zinc-950 text-zinc-100 mesh-gradient selection:bg-amber-500/30">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <span class="text-2xl font-bold tracking-tighter text-amber-500">ARC<span class="text-white">STUDIO</span></span>
+            <div class="hidden md:flex gap-8 text-sm font-medium">
+                <a href="#work" class="hover:text-amber-500 transition-colors">Portfolio</a>
+                <a href="#about" class="hover:text-amber-500 transition-colors">Philosophy</a>
+                <a href="#" class="hover:text-amber-500 transition-colors">Contact</a>
+            </div>
+            <button class="px-6 py-2 bg-white text-black font-semibold rounded-full hover:bg-amber-500 hover:text-white transition-all duration-300">
+                Start Project
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative min-h-screen flex items-center pt-20">
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <span class="text-amber-500 font-semibold tracking-widest uppercase text-sm">Est. 2024</span>
+                <h1 class="text-6xl md:text-8xl font-bold leading-tight">Sculpting <br><span class="text-zinc-500">Modern Living.</span></h1>
+                <p class="text-zinc-400 text-lg max-w-md leading-relaxed">We blend brutalist aesthetics with sustainable engineering to create spaces that define the future of urban architecture.</p>
+                <div class="flex gap-4">
+                    <button class="px-8 py-4 bg-amber-500 text-black font-bold rounded-lg hover:scale-105 transition-transform">View Projects</button>
+                    <button class="px-8 py-4 border border-zinc-700 rounded-lg hover:bg-zinc-800 transition-colors">Our Process</button>
+                </div>
+            </div>
+            <div class="relative h-[500px] w-full rounded-2xl overflow-hidden glass">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200" alt="Architecture" class="object-cover w-full h-full opacity-80 hover:opacity-100 transition-opacity duration-700">
+            </div>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="p-8 glass rounded-2xl hover-glow transition-all">
+                <i data-lucide="layout-grid" class="text-amber-500 mb-4 w-8 h-8"></i>
+                <h3 class="text-xl font-bold mb-3">Urban Planning</h3>
+                <p class="text-zinc-400">Strategic design that maximizes utility while respecting the environment.</p>
+            </div>
+            <div class="p-8 glass rounded-2xl hover-glow transition-all">
+                <i data-lucide="leaf" class="text-amber-500 mb-4 w-8 h-8"></i>
+                <h3 class="text-xl font-bold mb-3">Sustainable Tech</h3>
+                <p class="text-zinc-400">Net-zero energy buildings that don't compromise on luxury or style.</p>
+            </div>
+            <div class="p-8 glass rounded-2xl hover-glow transition-all">
+                <i data-lucide="pencil-ruler" class="text-amber-500 mb-4 w-8 h-8"></i>
+                <h3 class="text-xl font-bold mb-3">Interior Mastery</h3>
+                <p class="text-zinc-400">Curating spaces that evoke emotion through light, texture, and flow.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bento Showcase (Dynamic API) -->
+    <section id="work" class="py-24 px-6 max-w-7xl mx-auto">
+        <h2 class="text-4xl font-bold mb-12">Selected Works</h2>
+        <div id="bento-container" class="bento-grid">
+            <!-- Dynamic Content Injected Here -->
+            <div class="bg-zinc-800 rounded-2xl animate-pulse col-span-1 row-span-1"></div>
+            <div class="bg-zinc-800 rounded-2xl animate-pulse col-span-2 row-span-1"></div>
+            <div class="bg-zinc-800 rounded-2xl animate-pulse col-span-1 row-span-2"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 px-6 bg-white text-zinc-900">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+            <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80&w=800" class="rounded-2xl shadow-2xl" alt="Architect">
+            <div class="space-y-6">
+                <h2 class="text-5xl font-bold">Design is a conversation between form and function.</h2>
+                <p class="text-lg text-zinc-600 leading-relaxed">We believe that every structure should tell a story. By integrating advanced parametric modeling with traditional craftsmanship, we build landmarks that stand the test of time.</p>
+                <div class="flex gap-8 pt-4">
+                    <div><span class="block text-3xl font-bold">150+</span><span class="text-zinc-500">Projects</span></div>
+                    <div><span class="block text-3xl font-bold">24</span><span class="text-zinc-500">Awards</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-20 px-6 border-t border-zinc-800">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-12">
+            <div class="col-span-2 md:col-span-1">
+                <span class="text-xl font-bold text-amber-500">ARCSTUDIO</span>
+            </div>
+            <div class="space-y-4">
+                <h4 class="font-bold">Links</h4>
+                <ul class="text-zinc-500 space-y-2">
+                    <li>Projects</li>
+                    <li>Services</li>
+                    <li>Careers</li>
+                </ul>
+            </div>
+            <div class="space-y-4">
+                <h4 class="font-bold">Newsletter</h4>
+                <div class="flex gap-2">
+                    <input type="email" placeholder="Email address" class="bg-zinc-900 border border-zinc-800 p-2 rounded w-full">
+                    <button class="bg-amber-500 px-4 rounded text-black font-bold">Join</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Lucide Icons Init
+        lucide.createIcons();
+
+        // API Integration
+        const API_BASE = 'https://bazz44-h2rwho72o-otakogemrs331-5866s-projects.vercel.app';
+        const site_tag = 'architect';
+
+        async function fetchProjects() {
+            const container = document.getElementById('bento-container');
+            try {
+                const response = await fetch(`https://bazz44-h2rwho72o-otakogemrs331-5866s-projects.vercel.app/api/projects`, {
+        method: 'GET',
+        mode: 'cors',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    });
+                const data = await response.json();
+                
+                container.innerHTML = ''; // Clear loaders
+                
+                data.slice(0, 5).forEach((project, index) => {
+                    const card = document.createElement('div');
+                    // Create varying grid spans based on index
+                    const spans = ['col-span-1 row-span-1', 'col-span-2 row-span-1', 'col-span-1 row-span-2'];
+                    card.className = `group relative overflow-hidden rounded-2xl ${spans[index % 3]} glass hover-glow transition-all`;
+                    card.innerHTML = `
+                        <img src="https://images.unsplash.com/photo-1503387762-592deb58e4e2?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute bottom-0 p-6 bg-gradient-to-t from-black to-transparent w-full">
+                            <h3 class="font-bold text-lg">${project.title || 'Architectural Project'}</h3>
+                            <p class="text-sm text-zinc-300">View Details →</p>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                });
+            } catch (err) {
+                console.warn('API Offline, showing fallback content.');
+                container.innerHTML = `<div class="p-8 glass rounded-2xl col-span-full text-center text-zinc-500">Server offline. Please start your local API server.</div>`;
+            }
+        }
+
+        fetchProjects();
+    </script>
+</body>
+</html>
