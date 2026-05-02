@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Architecture | Premium Design Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .mesh-gradient { background: radial-gradient(circle at 50% 50%, #1e293b 0%, #0f172a 50%, #020617 100%); }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .hover-glow:hover { box-shadow: 0 0 30px rgba(251, 191, 36, 0.15); border-color: rgba(251, 191, 36, 0.3); }
+        .bento-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .bento-card:hover { transform: translateY(-10px); }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 selection:bg-amber-500 selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 px-8 py-6 flex justify-between items-center backdrop-blur-md border-b border-white/5">
+        <div class="text-2xl font-bold tracking-tighter">AURA<span class="text-amber-500">.</span></div>
+        <div class="hidden md:flex gap-8 text-sm font-medium text-slate-400">
+            <a href="#" class="hover:text-white transition">Projects</a>
+            <a href="#" class="hover:text-white transition">Philosophy</a>
+            <a href="#" class="hover:text-white transition">Studio</a>
+        </div>
+        <button class="px-6 py-2 bg-white text-slate-950 rounded-full text-sm font-semibold hover:bg-amber-500 transition">Get Started</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <div class="absolute inset-0 mesh-gradient -z-10"></div>
+        <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8">
+                <span class="text-amber-500 font-semibold tracking-widest uppercase text-sm">Award Winning Studio</span>
+                <h1 class="text-6xl md:text-8xl font-bold leading-[0.9] tracking-tighter">Architecture <br>Reimagined.</h1>
+                <p class="text-slate-400 text-lg max-w-lg leading-relaxed">We craft timeless spaces that breathe. Merging brutalist structural integrity with organic, modern aesthetics for the discerning client.</p>
+                <div class="flex gap-4">
+                    <button class="px-8 py-4 bg-amber-500 text-slate-950 font-bold rounded-lg hover:bg-white transition flex items-center gap-2">View Portfolio <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
+                    <button class="px-8 py-4 glass text-white font-bold rounded-lg hover:bg-white/10 transition">Book Consultation</button>
+                </div>
+            </div>
+            <div class="relative hidden lg:block">
+                <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&q=80&w=1200" alt="Architecture" class="rounded-2xl shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-700">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-24 px-6">
+        <div class="container mx-auto">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-8 glass rounded-2xl hover-glow">
+                    <i data-lucide="compass" class="text-amber-500 w-10 h-10 mb-6"></i>
+                    <h3 class="text-xl font-bold mb-4">Precision Planning</h3>
+                    <p class="text-slate-400">Every line drawn is a calculation of light, space, and human movement.</p>
+                </div>
+                <div class="p-8 glass rounded-2xl hover-glow">
+                    <i data-lucide="layers" class="text-amber-500 w-10 h-10 mb-6"></i>
+                    <h3 class="text-xl font-bold mb-4">Material Integrity</h3>
+                    <p class="text-slate-400">We source only the finest sustainable materials for longevity and texture.</p>
+                </div>
+                <div class="p-8 glass rounded-2xl hover-glow">
+                    <i data-lucide="zap" class="text-amber-500 w-10 h-10 mb-6"></i>
+                    <h3 class="text-xl font-bold mb-4">Rapid Execution</h3>
+                    <p class="text-slate-400">Streamlined workflow from concept to completion without compromising detail.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bento Showcase -->
+    <section class="py-24 px-6 bg-slate-900/50">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold mb-16 tracking-tighter">Selected Works</h2>
+            <div id="bento-grid" class="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[300px]">
+                <!-- Dynamic Content Injected Here -->
+                <div class="md:col-span-2 row-span-2 rounded-3xl overflow-hidden glass bento-card relative group">
+                    <img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=800" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition">
+                    <div class="absolute bottom-6 left-6 font-bold text-2xl">The Obsidian House</div>
+                </div>
+                <div class="rounded-3xl overflow-hidden glass bento-card relative group">
+                    <img src="https://images.unsplash.com/photo-1449844908441-8829872d2607?auto=format&fit=crop&w=600" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition">
+                </div>
+                <div class="rounded-3xl overflow-hidden glass bento-card relative group">
+                    <img src="https://images.unsplash.com/photo-1503387762-592daf58025e?auto=format&fit=crop&w=600" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition">
+                </div>
+                <div class="md:col-span-2 rounded-3xl overflow-hidden glass bento-card relative group">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-20 border-t border-white/5">
+        <div class="container mx-auto px-6 grid md:grid-cols-4 gap-12">
+            <div class="col-span-2 md:col-span-1">
+                <div class="text-2xl font-bold mb-6">AURA.</div>
+                <p class="text-slate-500 text-sm">Building the future, one structure at a time.</p>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6">Studio</h4>
+                <ul class="text-slate-400 space-y-4 text-sm">
+                    <li>Careers</li>
+                    <li>Press</li>
+                    <li>Contact</li>
+                </ul>
+            </div>
+            <div class="col-span-2 md:col-span-2">
+                <h4 class="font-bold mb-6">Newsletter</h4>
+                <div class="flex gap-2">
+                    <input type="email" placeholder="Enter your email" class="bg-white/5 border border-white/10 px-4 py-3 rounded-lg w-full focus:outline-none focus:border-amber-500">
+                    <button class="bg-amber-500 px-6 py-3 rounded-lg font-bold text-slate-950">Join</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Init Icons
+        lucide.createIcons();
+
+        // API Integration
+        const API_BASE = 'https://bazz44-lfnj9x9cy-otakogemrs331-5866s-projects.vercel.app';
+        const site_tag = 'architect';
+
+        async function loadProjects() {
+            try {
+                const response = await fetch(`https://bazz44-lfnj9x9cy-otakogemrs331-5866s-projects.vercel.app/api/projects`, {
+        method: 'GET',
+        mode: 'cors',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    });
+                if (!response.ok) throw new Error('API Offline');
+                const data = await response.json();
+                
+                const grid = document.getElementById('bento-grid');
+                // Logic to inject dynamic data would go here
+                console.log('Projects loaded for:', site_tag, data);
+            } catch (error) {
+                console.warn('Using fallback UI: API not accessible at', API_BASE);
+            }
+        }
+
+        loadProjects();
+    </script>
+</body>
+</html>
