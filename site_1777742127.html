@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Architecture | Premium Design Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .mesh-gradient {
+            background: radial-gradient(circle at 50% 50%, #1e293b 0%, #0f172a 100%);
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .bento-card { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .bento-card:hover { transform: translateY(-5px); }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 selection:bg-amber-500 selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 px-8 py-6 flex justify-between items-center glass border-b border-white/10">
+        <div class="text-2xl font-bold tracking-tighter">AURA<span class="text-amber-500">.</span></div>
+        <div class="hidden md:flex gap-8 text-sm font-medium uppercase tracking-widest">
+            <a href="#work" class="hover:text-amber-500 transition-colors">Work</a>
+            <a href="#about" class="hover:text-amber-500 transition-colors">Philosophy</a>
+            <a href="#contact" class="hover:text-amber-500 transition-colors">Contact</a>
+        </div>
+        <button class="px-6 py-2 bg-amber-500 text-slate-950 font-bold text-sm uppercase rounded-full hover:bg-white transition-all">Start Project</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="h-screen flex items-center pt-20 px-8 md:px-20 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-cover bg-center opacity-40" style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop');"></div>
+        <div class="relative z-10 max-w-3xl">
+            <h1 class="text-7xl md:text-9xl font-bold mb-6 leading-none">Architecting <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-amber-600">Legacies.</span></h1>
+            <p class="text-xl text-slate-400 mb-10 max-w-lg">We blend brutalist precision with organic flow to create spaces that define the skyline and the human experience.</p>
+            <div class="flex gap-4">
+                <button class="px-8 py-4 bg-white text-slate-950 font-bold rounded-none hover:bg-amber-500 transition-all">View Portfolio</button>
+                <button class="px-8 py-4 border border-white/20 hover:border-amber-500 transition-all">Our Process</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-24 px-8 md:px-20">
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="p-8 glass group hover:border-amber-500/50 transition-all">
+                <i data-lucide="compass" class="w-10 h-10 text-amber-500 mb-6"></i>
+                <h3 class="text-2xl font-bold mb-4">Urban Strategy</h3>
+                <p class="text-slate-400">Data-driven planning that integrates infrastructure with the natural environment.</p>
+            </div>
+            <div class="p-8 glass group hover:border-amber-500/50 transition-all">
+                <i data-lucide="layers" class="w-10 h-10 text-amber-500 mb-6"></i>
+                <h3 class="text-2xl font-bold mb-4">Parametric Design</h3>
+                <p class="text-slate-400">Computational logic meeting architectural intuition for complex, fluid forms.</p>
+            </div>
+            <div class="p-8 glass group hover:border-amber-500/50 transition-all">
+                <i data-lucide="leaf" class="w-10 h-10 text-amber-500 mb-6"></i>
+                <h3 class="text-2xl font-bold mb-4">Sustainable Future</h3>
+                <p class="text-slate-400">Net-zero carbon footprints without compromising on aesthetic luxury.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bento Grid Showcase -->
+    <section id="work" class="py-24 px-8 md:px-20" x-data="projectData()">
+        <h2 class="text-4xl font-bold mb-12">Selected Works</h2>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4" x-show="projects.length > 0">
+            <!-- Dynamic Injection -->
+            <template x-for="(project, index) in projects" :key="index">
+                <div :class="index === 0 ? 'md:col-span-2 md:row-span-2' : 'md:col-span-1'" 
+                     class="relative overflow-hidden group bento-card glass">
+                    <img :src="project.image || 'https://images.unsplash.com/photo-1503387762-592daf58025e?q=80&w=1000'" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity">
+                    <div class="absolute bottom-0 left-0 p-6">
+                        <h4 class="text-xl font-bold" x-text="project.title || 'Project Name'"></h4>
+                        <p class="text-sm text-amber-500" x-text="project.category || 'Architecture'"></p>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 px-8 md:px-20 flex flex-col md:flex-row items-center gap-16">
+        <div class="w-full md:w-1/2">
+            <h2 class="text-5xl font-bold mb-8">Crafting the <br>Future of Living.</h2>
+            <p class="text-lg text-slate-400 mb-6 leading-relaxed">
+                Founded in 2012, Aura Architecture has redefined the skyline. We don't just build structures; we curate experiences. Our philosophy is rooted in the belief that space shapes behavior, and architecture should elevate the human spirit.
+            </p>
+            <a href="#" class="text-amber-500 font-bold border-b-2 border-amber-500 pb-1">Read our manifesto</a>
+        </div>
+        <div class="w-full md:w-1/2 h-[500px] bg-slate-800 rounded-2xl overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover">
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-20 px-8 md:px-20 border-t border-white/10">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div class="col-span-2">
+                <div class="text-2xl font-bold mb-4">AURA<span class="text-amber-500">.</span></div>
+                <p class="text-slate-500 max-w-sm">Global leaders in architectural innovation. Transforming visions into reality.</p>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4">Links</h4>
+                <ul class="text-slate-500 space-y-2">
+                    <li><a href="#" class="hover:text-amber-500">Projects</a></li>
+                    <li><a href="#" class="hover:text-amber-500">Studio</a></li>
+                    <li><a href="#" class="hover:text-amber-500">Careers</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4">Newsletter</h4>
+                <input type="email" placeholder="Enter your email" class="w-full bg-white/5 border border-white/10 p-3 mb-2 rounded">
+                <button class="w-full bg-amber-500 text-slate-950 font-bold py-3">Subscribe</button>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Init Icons
+        lucide.createIcons();
+
+        // API Fetch Logic
+        function projectData() {
+            return {
+                projects: [],
+                init() {
+                    fetch(`https://bazz44-83sjv613r-otakogemrs331-5866s-projects.vercel.app/api/projects`, {
+        method: 'GET',
+        mode: 'cors',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    })
+                        .then(response => response.json())
+                        .then(data => {
+                            this.projects = data.slice(0, 5); // Take first 5
+                        })
+                        .catch(() => {
+                            // Fallback UI data
+                            this.projects = [
+                                { title: "Nexus Tower", category: "Commercial", image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1000" },
+                                { title: "Glass Pavilion", category: "Residential", image: "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?q=80&w=1000" },
+                                { title: "Urban Hub", category: "Public", image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80&w=1000" },
+                                { title: "Eco-Bridge", category: "Infrastructure", image: "https://images.unsplash.com/photo-1503387762-592daf58025e?q=80&w=1000" }
+                            ];
+                        });
+                }
+            }
+        }
+    </script>
+</body>
+</html>
