@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArcStudio | Modern Architectural Excellence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .mesh-gradient { background: radial-gradient(circle at 50% 50%, #1e293b 0%, #0f172a 100%); }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .hover-glow:hover { box-shadow: 0 0 20px rgba(255, 255, 255, 0.15); transition: 0.3s ease; }
+        .bento-item { transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .bento-item:hover { transform: scale(1.02); }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 selection:bg-amber-500/30">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="text-2xl font-bold tracking-tighter">ARC<span class="text-amber-500">STUDIO</span></div>
+            <div class="hidden md:flex gap-8 text-sm uppercase tracking-widest font-medium">
+                <a href="#work" class="hover:text-amber-500 transition">Work</a>
+                <a href="#about" class="hover:text-amber-500 transition">Philosophy</a>
+                <a href="#" class="hover:text-amber-500 transition">Contact</a>
+            </div>
+            <button class="px-6 py-2 bg-white text-slate-900 rounded-full font-semibold hover:bg-amber-500 hover:text-white transition">Inquire</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center pt-20">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070" class="w-full h-full object-cover opacity-40" alt="Architecture">
+            <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-transparent"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <h1 class="text-6xl md:text-8xl font-bold leading-tight mb-6">Designing the<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-amber-500">Future Skyline.</span></h1>
+            <p class="text-lg md:text-xl text-slate-400 max-w-xl mb-10">We merge brutalist aesthetics with sustainable engineering to create spaces that define an era.</p>
+            <div class="flex gap-4">
+                <a href="#work" class="px-8 py-4 bg-amber-500 text-slate-900 font-bold rounded-lg hover:bg-amber-400 transition">View Portfolio</a>
+                <button class="px-8 py-4 border border-white/20 rounded-lg hover:bg-white/10 transition">Our Process</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-24 bg-slate-950">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-12">
+            <div class="p-8 rounded-2xl glass hover-glow">
+                <i data-lucide="compass" class="w-10 h-10 text-amber-500 mb-6"></i>
+                <h3 class="text-xl font-bold mb-4">Precision Planning</h3>
+                <p class="text-slate-400">Every line drawn is backed by rigorous structural analysis and environmental impact studies.</p>
+            </div>
+            <div class="p-8 rounded-2xl glass hover-glow">
+                <i data-lucide="layers" class="w-10 h-10 text-amber-500 mb-6"></i>
+                <h3 class="text-xl font-bold mb-4">Sustainable Tech</h3>
+                <p class="text-slate-400">Integrating smart building systems that reduce carbon footprint by up to 40% annually.</p>
+            </div>
+            <div class="p-8 rounded-2xl glass hover-glow">
+                <i data-lucide="award" class="w-10 h-10 text-amber-500 mb-6"></i>
+                <h3 class="text-xl font-bold mb-4">Award-Winning</h3>
+                <p class="text-slate-400">Recognized globally for pushing the boundaries of contemporary urban residential design.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bento Portfolio Section -->
+    <section id="work" class="py-24" x-data="{ projects: [], loading: true }" x-init="
+        fetch(`https://bazz44-alv7ayfgs-otakogemrs331-5866s-projects.vercel.app/api/projects`, {
+        method: 'GET',
+        mode: 'cors',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    })
+            .then(res => res.json())
+            .then(data => { projects = data; loading = false; })
+            .catch(() => { 
+                projects = [
+                    {title: 'The Obsidian Tower', category: 'Commercial', img: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=800'},
+                    {title: 'Glass Haven', category: 'Residential', img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800'},
+                    {title: 'Urban Oasis', category: 'Public', img: 'https://images.unsplash.com/photo-1449844908441-8829872d2607?q=80&w=800'}
+                ];
+                loading = false;
+            })
+    ">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-12">Featured Works</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px]">
+                <template x-for="(project, index) in projects" :key="index">
+                    <div class="bento-item group relative overflow-hidden rounded-3xl" :class="index === 0 ? 'md:col-span-2' : ''">
+                        <img :src="project.img" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Project">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent p-8 flex flex-col justify-end">
+                            <span class="text-amber-500 text-sm font-bold uppercase tracking-wider" x-text="project.category"></span>
+                            <h3 class="text-2xl font-bold" x-text="project.title"></h3>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-slate-900">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center gap-16">
+            <div class="flex-1">
+                <img src="https://images.unsplash.com/photo-1503387762-592deb58e4e2?q=80&w=1000" class="rounded-2xl shadow-2xl" alt="Architect">
+            </div>
+            <div class="flex-1">
+                <h2 class="text-4xl font-bold mb-6">Philosophy of Space.</h2>
+                <p class="text-slate-400 mb-6 leading-relaxed">We believe architecture is not just about building structures; it's about curating experiences. Our team of visionaries works at the intersection of art and utility, ensuring every project stands as a testament to timeless design.</p>
+                <div class="flex gap-8">
+                    <div>
+                        <div class="text-3xl font-bold text-amber-500">15+</div>
+                        <div class="text-sm text-slate-500 uppercase tracking-widest">Years Experience</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold text-amber-500">200</div>
+                        <div class="text-sm text-slate-500 uppercase tracking-widest">Projects Completed</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-12">
+            <div class="col-span-2">
+                <div class="text-2xl font-bold mb-4">ARC<span class="text-amber-500">STUDIO</span></div>
+                <p class="text-slate-500 max-w-xs">Crafting the skylines of tomorrow with precision and passion.</p>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4">Links</h4>
+                <ul class="text-slate-500 space-y-2">
+                    <li><a href="#" class="hover:text-amber-500">Projects</a></li>
+                    <li><a href="#" class="hover:text-amber-500">About</a></li>
+                    <li><a href="#" class="hover:text-amber-500">Careers</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4">Newsletter</h4>
+                <input type="email" placeholder="Enter your email" class="w-full bg-slate-900 border border-white/10 p-3 rounded-lg mb-2">
+                <button class="w-full bg-amber-500 text-slate-900 py-2 rounded-lg font-bold">Subscribe</button>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
